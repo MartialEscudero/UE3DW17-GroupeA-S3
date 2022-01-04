@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Les titres des documents ayant les rangs 1 à 10</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Les titres des documents ayant les rangs 1 à 10 :</h1>
+    <ul>
+      <%
+        var title = '';
+        for (i = 0; i < documents.length; i++) {
+          if (documents[i].fields.rang <= 10) {
+            title += '<li>'+ documents[i].fields.titre_avec_lien_vers_le_catalogue +'</li>';
+          }
+        }
+      %>
+      <%- title %>
+    </ul>
+  </body>
+</html>

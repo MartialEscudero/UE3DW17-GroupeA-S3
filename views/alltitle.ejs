@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tous les titres</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Tous les titres :</h1>
+    <ul>
+      <%
+        var title = '';
+        for (i = 0; i < documents.length; i++) {
+          title += '<li>'+ documents[i].fields.titre_avec_lien_vers_le_catalogue +'</li>';
+        }
+      %>
+      <%- title %>
+    </ul>
+  </body>
+</html>
