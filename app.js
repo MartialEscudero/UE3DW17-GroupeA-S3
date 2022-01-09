@@ -8,7 +8,7 @@ var logger = require('morgan');
 
 // New Code
 var monk = require('monk');
-var db = monk('mongodb+srv://'+process.env.MONGODB_USER+':'+process.env.MONGODB_PASSWORD+'@cluster0.gt4gi.mongodb.net/'+process.env.DATABASE_NAME+'?retryWrites=true&w=majority');
+var db = monk('mongodb+srv://'+process.env.MONGODB_USER+':'+process.env.MONGODB_PASSWORD+'@'+process.env.MONGO_CLUSTER+'.mongodb.net/'+process.env.DATABASE_NAME+'?retryWrites=true&w=majority');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

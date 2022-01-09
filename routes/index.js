@@ -28,4 +28,26 @@ router.get('/ranktitle', function(req, res) {
   });
 });
 
+/* GET Title page. */
+router.get('/authors', function(req, res) {
+  var db = req.db;
+  var collection = db.get('documents');
+  collection.find({},{},function(e,docs){
+    res.render('authors', {
+      "documents" : docs
+    });
+  });
+});
+
+/* GET Title page. */
+router.get('/notype', function(req, res) {
+  var db = req.db;
+  var collection = db.get('documents');
+  collection.find({},{},function(e,docs){
+    res.render('notype', {
+      "documents" : docs
+    });
+  });
+});
+
 module.exports = router;

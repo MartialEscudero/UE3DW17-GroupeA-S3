@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Les auteurs de tous les documents dont le titre commence par la lettre N</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Les auteurs de tous les documents dont le titre commence par la lettre N :</h1>
+    <ul>
+      <%
+        var title = '';
+        for (i = 0; i < documents.length; i++) {
+          if (documents[i].fields.titre_avec_lien_vers_le_catalogue.startsWith("N")) {
+            title += '<li>'+ documents[i].fields.auteur +'</li>';
+          }
+        }
+      %>
+      <%- title %>
+    </ul>
+  </body>
+</html>

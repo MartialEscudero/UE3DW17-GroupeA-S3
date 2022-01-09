@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Toutes les informations vers les documents n'ayant pas de champ "type_de_document"</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Toutes les informations vers les documents n'ayant pas de champ "type_de_document" :</h1>
+    <ul>
+      <%
+        var title = '';
+        for (i = 0; i < documents.length; i++) {
+          if (typeof documents[i].fields.type_de_document == "undefined") {
+            title += '<pre>'+ JSON.stringify(documents, null, 2) +'</pre>';
+          }
+        }
+      %>
+      <%- title %>
+    </ul>
+  </body>
+</html>
