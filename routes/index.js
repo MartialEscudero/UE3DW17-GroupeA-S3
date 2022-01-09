@@ -50,4 +50,26 @@ router.get('/notype', function(req, res) {
   });
 });
 
+/* GET "every document type" page. Unless this field is missing in the document */
+router.get('/everytype', function (req, res) {
+    var db = req.db;
+    var collection = db.get('documents');
+    collection.aggregate([{ $match: { "fields.type_de_document": { $exists: true } } }, { $group: { _id: "$fields.type_de_document" } }, { $sort: { _id: 1 } }], function (e, docs) {
+        res.render('everytype', {
+            "documents": docs
+        });
+    });
+});
+
+/* GET borrow/return page */
+router.get('/library', function (req, res) {
+    var db = req.db;
+    var collection = db.get('documents');
+    collection.find({}, {}, function (e, docs) {
+        res.render('library', {
+            "documents": docs
+        });
+    });
+});
+
 module.exports = router;

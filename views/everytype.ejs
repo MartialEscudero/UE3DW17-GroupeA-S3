@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tous les types</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Tous les types:</h1>
+    <ul>
+      <%
+        var title = '';
+        for (i = 0; i < documents.length; i++) {
+          title += '<li>'+ documents[i]._id +'</li>';
+        }
+      %>
+      <%- title %>
+    </ul>
+  </body>
+</html>

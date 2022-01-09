@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Disponibilité des ouvrages</title>
+        <link rel="stylesheet" href="/stylesheets/style_library.css" />
+    </head>
+    <body>
+        
+        <div>
+            <h2>Emprunter ou rendre un ouvrage :</h2>
+            <table data-table-theme="zebra">
+                <thead>
+                    <tr>
+                        <th>Nom de l'ouvrage</th>
+                    
+                        <th>Statut</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% 
+                    var rows = '';
+                    var size = documents.length;
+                        for (i = 0; i < size; i++) { 
+                            rows += '<tr>';
+                            
+                            if(documents[i].fields){
+                                if(documents[i].fields.titre_avec_lien_vers_le_catalogue){
+                                    rows += '<td>'+ documents[i].fields.titre_avec_lien_vers_le_catalogue +'</td>';
+                                }
+                            } else {
+                                continue;
+                            }
+
+                            if (documents[i].status) {
+                                rows += '<td>'+ documents[i].status +'</td>';
+                            } else {
+                                rows += '<td>Disponible</td>';
+                            }
+
+                            rows += '<td><button class="borrow" value="'+ documents[i]._id +'">Emprunter</button><button class="return" value="'+ documents[i]._id +'">Rendre</button></td>';
+                            rows += '</tr>';
+                        }
+                    %> 
+                    <%- rows %>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="/js/jquery.js"></script>
+        <script src="/js/api.js"></script>
+    </body>
+</html>
